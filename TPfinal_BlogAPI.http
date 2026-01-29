@@ -1,0 +1,6 @@
+@TPfinal_BlogAPI_HostAddress = http://localhost:5298
+
+GET {{TPfinal_BlogAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

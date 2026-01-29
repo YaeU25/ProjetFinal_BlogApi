@@ -1,0 +1,160 @@
+[
+  {
+    "ContainingType": "TPfinal_BlogAPI.Controllers.ArticlesController",
+    "Method": "GetArticles",
+    "RelativePath": "api/v1/Articles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TPfinal_BlogAPI.Controllers.ArticlesController",
+    "Method": "CreateArticle",
+    "RelativePath": "api/v1/Articles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "payload",
+        "Type": "TPfinal_BlogAPI.DTOs.CreateArticleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TPfinal_BlogAPI.Controllers.ArticlesController",
+    "Method": "GetArticle",
+    "RelativePath": "api/v1/Articles/{articleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TPfinal_BlogAPI.Controllers.ArticlesController",
+    "Method": "PutArticle",
+    "RelativePath": "api/v1/Articles/{articleId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "payload",
+        "Type": "TPfinal_BlogAPI.DTOs.UpdateArticleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TPfinal_BlogAPI.Controllers.ArticlesController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/Articles/{articleId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TPfinal_BlogAPI.Controllers.CommentsController",
+    "Method": "GetAllByArticle",
+    "RelativePath": "api/v1/articles/{articleId}/Comments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TPfinal_BlogAPI.Controllers.CommentsController",
+    "Method": "CreateComment",
+    "RelativePath": "api/v1/articles/{articleId}/Comments",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "payload",
+        "Type": "TPfinal_BlogAPI.DTOs.CreateCommentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TPfinal_BlogAPI.Controllers.CommentsController",
+    "Method": "GetComment",
+    "RelativePath": "api/v1/articles/{articleId}/Comments/{commentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TPfinal_BlogAPI.Controllers.CommentsController",
+    "Method": "Delete",
+    "RelativePath": "api/v1/articles/{articleId}/Comments/{commentId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "articleId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
