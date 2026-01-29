@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using TPfinal_BlogAPI.DTOs;
-using TPfinal_BlogAPI.Entities;
 using TPfinal_BlogAPI.Services;
 
 namespace TPfinal_BlogAPI.Controllers
 {
-    [Route("api/v1/articles/{articleId}/[controller]")]
+    [Route("api/v1/articles/{articleId}/comments")]
     [ApiController]
     public class CommentsController : ControllerBase
     {
@@ -45,7 +42,7 @@ namespace TPfinal_BlogAPI.Controllers
         public IActionResult CreateComment(int articleId, [FromBody] CreateCommentDto payload)
         {
             var comment = _commentService.Creat(articleId, payload);
-            return CreatedAtAction(nameof(GetComment), new { commentId = comment.Id }, comment);
+            return CreatedAtAction(nameof(GetComment), new { articleId = comment.Article_id, commentId = comment.Id }, comment);
         }
 
         [HttpDelete("{commentId}")]

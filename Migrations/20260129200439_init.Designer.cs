@@ -11,9 +11,9 @@ using TPfinal_BlogAPI.Data;
 
 namespace TPfinal_BlogAPI.Migrations
 {
-    [DbContext(typeof(BlogCotext))]
-    [Migration("20260129105415_inition")]
-    partial class inition
+    [DbContext(typeof(BlogContext))]
+    [Migration("20260129200439_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

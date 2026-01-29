@@ -40,8 +40,8 @@ namespace TPfinal_BlogAPI.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    article_id = table.Column<int>(type: "int", nullable: false),
-                    author = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                    Article_id = table.Column<int>(type: "int", nullable: false),
+                    Author = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Content = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -51,8 +51,8 @@ namespace TPfinal_BlogAPI.Migrations
                 {
                     table.PrimaryKey("PK_Comments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Comments_Articles_article_id",
-                        column: x => x.article_id,
+                        name: "FK_Comments_Articles_Article_id",
+                        column: x => x.Article_id,
                         principalTable: "Articles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -60,9 +60,9 @@ namespace TPfinal_BlogAPI.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_article_id",
+                name: "IX_Comments_Article_id",
                 table: "Comments",
-                column: "article_id");
+                column: "Article_id");
         }
 
         /// <inheritdoc />

@@ -1,6 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
-using TPfinal_BlogAPI.Data;
+﻿using TPfinal_BlogAPI.Data;
 using TPfinal_BlogAPI.DTOs;
 using TPfinal_BlogAPI.Entities;
 
@@ -8,8 +6,8 @@ namespace TPfinal_BlogAPI.Services;
 
 public class CommentService
 {
-    private readonly BlogCotext _context;
-    public CommentService(BlogCotext context)
+    private readonly BlogContext _context;
+    public CommentService(BlogContext context)
     {
         _context = context;
     }
@@ -22,12 +20,14 @@ public class CommentService
     }
     public Comment Creat(int articleId, CreateCommentDto payload)
     {
+        var commentArticleId = payload.Article_id;
         var commentAuthor = payload.Author;
         var commentContent = payload.Content;
         var commentCreatedAt = payload.CreatedAt;
 
         var newComment = new Comment()
         {
+            Article_id = commentArticleId,
             Author = commentAuthor,
             Content = commentContent,
             CreatedAt = commentCreatedAt

@@ -2,7 +2,7 @@
 
 public class CreateCommentDto
 {
-    public string Article_id { get; set; }
+    public int Article_id { get; set; }
     public string Author { get; set; }
     public string Content { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.Now;

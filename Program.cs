@@ -1,5 +1,5 @@
-using TPfinal_BlogAPI.Data;
 using Microsoft.EntityFrameworkCore;
+using TPfinal_BlogAPI.Data;
 using TPfinal_BlogAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddScoped<ArticleService>();
 builder.Services.AddScoped<CommentService>();
-builder.Services.AddDbContext<BlogCotext>(options =>
+builder.Services.AddDbContext<BlogContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(

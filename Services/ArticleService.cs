@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using TPfinal_BlogAPI.Data;
+﻿using TPfinal_BlogAPI.Data;
 using TPfinal_BlogAPI.DTOs;
 using TPfinal_BlogAPI.Entities;
 
@@ -7,26 +6,15 @@ namespace TPfinal_BlogAPI.Services;
 
 public class ArticleService
 {
-    private readonly BlogCotext _context;
-    public ArticleService(BlogCotext context)
+    private readonly BlogContext _context;
+    public ArticleService(BlogContext context)
     {
         _context = context;
     }
 
-    public IEnumerable<CreateArticleDto> GetArticles(string? title = null, string? content = null)
+    public IEnumerable<CreateArticleDto> GetArticles()
     {
         var query = _context.Articles.AsQueryable();
-
-        if (!string.IsNullOrEmpty(title))
-        {
-            query = query.Where(a => a.Title.Contains(title));
-        }
-
-        if (!string.IsNullOrEmpty(content))
-        {
-            query = query.Where(a => a.Content.Contains(content));
-        }
-
         return query
             .Select(a => new CreateArticleDto
             {
@@ -73,13 +61,14 @@ public class ArticleService
         {
             articleFound.Content = payload.Content;
         }
-            articleFound.UpdatedAt = DateTime.Now;
+        articleFound.UpdatedAt = DateTime.Now;
 
         _context.SaveChanges();
         return true;
     }
 
-    public bool Delete(int id) {
+    public bool Delete(int id)
+    {
         var articleFound = _context.Articles.FirstOrDefault(a => a.Id == id);
         if (articleFound == null) return false;
 

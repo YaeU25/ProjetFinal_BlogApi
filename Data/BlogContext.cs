@@ -2,11 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using TPfinal_BlogAPI.Entities;
 
-namespace TPfinal_BlogAPI .Data;
+namespace TPfinal_BlogAPI.Data;
 
-public class BlogCotext : DbContext
+public class BlogContext : DbContext
 {
     public virtual DbSet<Article> Articles { get; set; }
     public virtual DbSet<Comment> Comments { get; set; }
-    public BlogCotext(DbContextOptions<BlogCotext> options) : base(options) { }
+    public BlogContext(DbContextOptions<BlogContext> options) : base(options) { }
+
 }
