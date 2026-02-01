@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.2.11415.280 d18.0
+VisualStudioVersion = 18.2.11415.280
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPfinal_BlogAPI", "TPfinal_BlogAPI.csproj", "{327B6E42-5183-0849-8D3C-DAFA6839C024}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPfinalBlogAPITest", "..\TPfinalBlogAPITest\TPfinalBlogAPITest.csproj", "{48D5378A-34F2-4389-87CE-ECB349601A98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{327B6E42-5183-0849-8D3C-DAFA6839C024}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{327B6E42-5183-0849-8D3C-DAFA6839C024}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{327B6E42-5183-0849-8D3C-DAFA6839C024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48D5378A-34F2-4389-87CE-ECB349601A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48D5378A-34F2-4389-87CE-ECB349601A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48D5378A-34F2-4389-87CE-ECB349601A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48D5378A-34F2-4389-87CE-ECB349601A98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
