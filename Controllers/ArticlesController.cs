@@ -9,21 +9,25 @@ namespace TPfinal_BlogAPI.Controllers
     public class ArticlesController : ControllerBase
     {
         private readonly ArticleService _articleService;
-        public ArticlesController(ArticleService articleService)
+        private readonly ILogger<ArticlesController> _logger;
+        public ArticlesController(ArticleService articleService, ILogger<ArticlesController> logger)
         {
             _articleService = articleService;
+            _logger = logger;
         }
 
         [HttpGet]
-        public IActionResult GetArticles()
+        public IActionResult GetArticles(int page = 1, int pageSize = 5)
         {
             try
             {
-                var result = _articleService.GetArticles();
+                var result = _articleService.GetArticles(page, pageSize);
+                _logger.LogInformation("GetArticles returned {Count} articles", result.Count());
                 return Ok(result);
             }
-            catch
+            catch (Exception ex)
             {
+                _logger.LogError(ex, "Error while getting articles");
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -34,8 +38,10 @@ namespace TPfinal_BlogAPI.Controllers
             var article = _articleService.GetById(articleId);
             if (article == null)
             {
+                _logger.LogWarning("Article ID : id={Id} not found", articleId);
                 return NotFound();
             }
+            _logger.LogInformation("GetArticle returned articles ID : id={Id}", articleId);
             return Ok(article);
         }
 

@@ -12,10 +12,12 @@ public class ArticleService
         _context = context;
     }
 
-    public IEnumerable<CreateArticleDto> GetArticles()
+    public IEnumerable<CreateArticleDto> GetArticles(int page, int pageSize)
     {
-        var query = _context.Articles.AsQueryable();
-        return query
+        return _context.Articles
+            .OrderBy(a => a.Id)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .Select(a => new CreateArticleDto
             {
                 Title = a.Title,

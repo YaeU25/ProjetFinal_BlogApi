@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using TPfinal_BlogAPI.Data;
 using TPfinal_BlogAPI.Services;
 
@@ -9,8 +10,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddScoped<ArticleService>();
-builder.Services.AddScoped<CommentService>();
 builder.Services.AddDbContext<BlogContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
@@ -19,6 +18,11 @@ builder.Services.AddDbContext<BlogContext>(options =>
         )
     )
 );
+builder.Services.AddScoped<ArticleService>();
+builder.Services.AddScoped<CommentService>();
+
+Log.Logger = new LoggerConfiguration().WriteTo.Console().WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+builder.Host.UseSerilog();
 
 var app = builder.Build();
 
