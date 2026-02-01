@@ -4,7 +4,7 @@ using TPfinal_BlogAPI.Services;
 
 namespace TPfinal_BlogAPI.Controllers
 {
-    [Route("api/v1/articles/{articleId}/comments")]
+    [Route("api/v1/articles/{articleId}")]
     [ApiController]
     public class CommentsController : ControllerBase
     {
@@ -13,7 +13,7 @@ namespace TPfinal_BlogAPI.Controllers
         {
             _commentService = commentService;
         }
-        [HttpGet]
+        [HttpGet("comments")]
         public IActionResult GetAllByArticle(int articleId)
         {
             try
@@ -31,21 +31,21 @@ namespace TPfinal_BlogAPI.Controllers
         public IActionResult GetComment(int articleId, int commentId)
         {
             var comment = _commentService.GetById(commentId);
-            if (comment == null || comment.Article_id != articleId)
+            if (comment == null || comment.ArticleId != articleId)
             {
                 return NotFound();
             }
             return Ok(comment);
         }
 
-        [HttpPost]
+        [HttpPost("comments")]
         public IActionResult CreateComment(int articleId, [FromBody] CreateCommentDto payload)
         {
             var comment = _commentService.Creat(articleId, payload);
-            return CreatedAtAction(nameof(GetComment), new { articleId = comment.Article_id, commentId = comment.Id }, comment);
+            return CreatedAtAction(nameof(GetComment), new { articleId = articleId, commentId = comment.Id }, comment);
         }
 
-        [HttpDelete("{commentId}")]
+        [HttpDelete("comments/{commentId}")]
         public IActionResult Delete(int commentId)
         {
             var deleted = _commentService.Delete(commentId);

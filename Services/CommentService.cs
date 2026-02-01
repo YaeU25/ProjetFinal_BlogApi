@@ -15,22 +15,22 @@ public class CommentService
     public IEnumerable<Comment> GetAllCommentsByArticle(int articleId)
     {
         return _context.Comments
-            .Where(c => c.Article_id == articleId)
+            .Where(c => c.ArticleId == articleId)
             .ToList();
     }
     public Comment Creat(int articleId, CreateCommentDto payload)
     {
-        var commentArticleId = payload.Article_id;
+        var commentArticleId = articleId;
         var commentAuthor = payload.Author;
         var commentContent = payload.Content;
         var commentCreatedAt = payload.CreatedAt;
 
         var newComment = new Comment()
         {
-            Article_id = commentArticleId,
+            ArticleId = commentArticleId,
             Author = commentAuthor,
             Content = commentContent,
-            CreatedAt = commentCreatedAt
+            CreatedAt = DateTime.Now
         };
 
         _context.Comments.Add(newComment);

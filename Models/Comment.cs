@@ -1,15 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace TPfinal_BlogAPI.Entities;
+
 public class Comment
 {
     [Key]
     public int Id { get; set; }
 
     [Required]
-    [ForeignKey("Article")]
-    public int Article_id { get; set; }
+    [ForeignKey(nameof(Article))]
+    public int ArticleId { get; set; }
 
     [Required, MaxLength(100)]
     public string Author { get; set; }
@@ -19,5 +21,7 @@ public class Comment
 
     [Required]
     public DateTime CreatedAt { get; set; } = DateTime.Now;
-    public virtual Article Article { get; set; }
+
+    [JsonIgnore]
+    public Article Article { get; set; }
 }

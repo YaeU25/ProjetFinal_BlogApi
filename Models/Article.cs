@@ -15,7 +15,7 @@ public class Article
 
     [Required]
     public DateTime CreatedAt { get; set; } = DateTime.Now;
-    public DateTime? UpdatedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; } = null;
     public List<Comment> Comments { get; set; } = new List<Comment>();
 
 }

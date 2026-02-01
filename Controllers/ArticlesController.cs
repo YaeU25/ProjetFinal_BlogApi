@@ -65,5 +65,15 @@ namespace TPfinal_BlogAPI.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("search")]
+        public IActionResult SearchArticles([FromQuery] string? title, [FromQuery] string? content)
+        {
+            var results = _articleService.Search(title, content);
+            if (!results.Any())
+                return NotFound();
+            return Ok(results);
+
+        }
     }
 }

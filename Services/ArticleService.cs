@@ -34,14 +34,12 @@ public class ArticleService
         var articleTitle = payload.Title;
         var articleContent = payload.Content;
         var articleCreatedAt = payload.CreatedAt;
-        var articleUpdatedAt = payload.UpdatedAt;
 
         var newArticle = new Article()
         {
             Title = articleTitle,
             Content = articleContent,
-            CreatedAt = articleCreatedAt,
-            UpdatedAt = articleUpdatedAt
+            CreatedAt = DateTime.Now
         };
 
         _context.Articles.Add(newArticle);
@@ -49,6 +47,26 @@ public class ArticleService
 
         return newArticle;
     }
+
+    public IEnumerable<CreateArticleDto> Search(string? title, string? content)
+    {
+        var query = _context.Articles.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(title))
+            query = query.Where(a => a.Title.Contains(title));
+
+        if (!string.IsNullOrWhiteSpace(content))
+            query = query.Where(a => a.Content.Contains(content));
+
+        return query
+            .Select(a => new CreateArticleDto
+            {
+                Title = a.Title,
+                Content = a.Content
+            })
+            .ToList();
+    }
+
     public bool Update(int id, UpdateArticleDto payload)
     {
         var articleFound = _context.Articles.FirstOrDefault(a => a.Id == id);

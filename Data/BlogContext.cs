@@ -10,4 +10,6 @@ public class BlogContext : DbContext
     public virtual DbSet<Comment> Comments { get; set; }
     public BlogContext(DbContextOptions<BlogContext> options) : base(options) { }
 
+
+
 }
