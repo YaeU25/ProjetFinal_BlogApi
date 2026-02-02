@@ -78,7 +78,7 @@ Pour supprimer un commentaire utiliser la formule DELETE
 Pour rechercher des articles utiliser une des formule GET
 	-> https://localhost:7126/api/v1/articles/search?title=
 	-> https://localhost:7126/api/v1/articles/search?content=
-	-> https://localhost:7126/api/v1/articles/search?title=&&content=
+	-> https://localhost:7126/api/v1/articles/search?title=&&?content=
 
 ## Pagination
 
